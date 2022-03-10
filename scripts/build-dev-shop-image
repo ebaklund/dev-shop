@@ -1,0 +1,10 @@
+#!/bin/bash
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+### MAIN
+
+# Sometimes need to add --no-cache to resolve properly
+#docker build --no-cache -t dev-shop:latest -f ./Dockerfile .
+docker build -t dev-shop:latest -f ./Dockerfile .

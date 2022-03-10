@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+### MAIN
+
+# For docker in docker see: https://devopscube.com/run-docker-in-docker
+docker run -v /var/run/docker.sock:/var/run/docker.sock -ti dev-shop:latest bash
