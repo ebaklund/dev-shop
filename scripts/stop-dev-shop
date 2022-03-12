@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+### MAIN
+
+if docker ps | grep -q -e 'dev-shop$'; then
+  echo "Stopping dev-shop"
+  docker kill dev-shop
+  docker rm dev-shop
+else
+  echo "dev-shop already stopped"
+fi

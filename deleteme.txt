@@ -1,0 +1,110 @@
+[
+    {
+        "Id": "sha256:bbacda2874f4a2a53ae0fa4b1c9f9b1011e218b5e542be5b4ae948279477f6aa",
+        "RepoTags": [
+            "dev-shop:latest",
+            "rancher/k3d:5.3.0-dind"
+        ],
+        "RepoDigests": [
+            "rancher/k3d@sha256:0a05bb3e8269f2cab3c8c1528a49b64b4b2009ae7e9fea05dd984f43800fbb81"
+        ],
+        "Parent": "",
+        "Comment": "buildkit.dockerfile.v0",
+        "Created": "2022-02-03T12:53:57.635787231Z",
+        "Container": "",
+        "ContainerConfig": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "OnBuild": null,
+            "Labels": null
+        },
+        "DockerVersion": "",
+        "Author": "",
+        "Config": {
+            "Hostname": "",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "2375/tcp": {},
+                "2376/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "DOCKER_VERSION=20.10.12",
+                "DOCKER_TLS_CERTDIR=/certs",
+                "DIND_COMMIT=42b1175eda071c0e9121e1d64345928384a93df1"
+            ],
+            "Cmd": null,
+            "Image": "",
+            "Volumes": {
+                "/var/lib/docker": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "dockerd-entrypoint.sh"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "org.opencontainers.image.created": "2022-02-03T12:53:29Z",
+                "org.opencontainers.image.revision": "bb8a2b0bb57ad69680e4e2a0772a0bf31f35a457",
+                "org.opencontainers.image.source": "https://github.com/rancher/k3d.git",
+                "org.opencontainers.image.url": "https://github.com/rancher/k3d"
+            }
+        },
+        "Architecture": "amd64",
+        "Os": "linux",
+        "Size": 324781452,
+        "VirtualSize": 324781452,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/data2/VAR_LIB_DOCKER/overlay2/4a96037da99737761bcd0d80360d43ec6913468b7adef6973b820054c43fc86f/diff:/data2/VAR_LIB_DOCKER/overlay2/84de287fb150aac71e525bd0be9f9cccfd91811f8d2cf3300b0fd581aed6587c/diff:/data2/VAR_LIB_DOCKER/overlay2/a91ed603c1cfe1bb2c5fbebfbc1437df8234d0d632ab7ac8a231933e51ed3f8e/diff:/data2/VAR_LIB_DOCKER/overlay2/a36071ccec86a3ea385a83afcef027897f8ec046693aaec0cf320bc6200b71b0/diff:/data2/VAR_LIB_DOCKER/overlay2/fe2494cecc488dec44942f3d16a64f0b5245dc2ea80281a9538f4d0cef988a25/diff:/data2/VAR_LIB_DOCKER/overlay2/54251729889d8f9618a8edd6d4c32cc85f41bc8d23e591a31c2c866cd8ba678d/diff:/data2/VAR_LIB_DOCKER/overlay2/3899e66660ae690817441fb965c8a6949661a866ded35906c0e051be8be271b8/diff:/data2/VAR_LIB_DOCKER/overlay2/7a01d1b9af83d27d141a3bb6de2af1f6d57448973d0847d25b518dc276daa79c/diff:/data2/VAR_LIB_DOCKER/overlay2/3d20dc64c6c9893ce53179d7ac275dc26d1035c34d7f5aadcf90da071e064b8a/diff:/data2/VAR_LIB_DOCKER/overlay2/4367c73c46745a1ffd21c0398a4d5ce04a90fbcb20ef39bfd34c40ea36884298/diff:/data2/VAR_LIB_DOCKER/overlay2/0b7630a82e5b42747b0597dfeaa78bfdad323e7801bb8cc3eb6a233c54023130/diff:/data2/VAR_LIB_DOCKER/overlay2/443db6f30debff7dddbcf28fb4b57e9873668509f4be2cf0b4e5b7e111770ba4/diff:/data2/VAR_LIB_DOCKER/overlay2/2c1df4e64f80dbc5b50537cc253b90a47ffcaeaf9eec6a8326c5a65317b8568b/diff:/data2/VAR_LIB_DOCKER/overlay2/288b98e22ac43e4ee699567ce5bb11dc21aa556b3dc230d75d743d3c575c760c/diff",
+                "MergedDir": "/data2/VAR_LIB_DOCKER/overlay2/98d283f78fd9ff49aa65e4d08e8e7eb0afc49a7f67bf91848de616a217bd8fea/merged",
+                "UpperDir": "/data2/VAR_LIB_DOCKER/overlay2/98d283f78fd9ff49aa65e4d08e8e7eb0afc49a7f67bf91848de616a217bd8fea/diff",
+                "WorkDir": "/data2/VAR_LIB_DOCKER/overlay2/98d283f78fd9ff49aa65e4d08e8e7eb0afc49a7f67bf91848de616a217bd8fea/work"
+            },
+            "Name": "overlay2"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:8d3ac3489996423f53d6087c81180006263b79f206d3fdec9e66f0e27ceb8759",
+                "sha256:661ef83a114fb70577591c63da0d5c0e9659a29f914f6eb7443db3350068ac1d",
+                "sha256:f7674e51a4a56809bb598496aa0bad0318f73284639297fa03db2533b0ae5dd4",
+                "sha256:1320e38b009fafdf0055ae2cd1a99d44274d20ec34f809b277510d65f96d2c57",
+                "sha256:3550aa9fea6997028b0a5cc4c9a8ce366b353e0db3c7d1884b60d0405f557437",
+                "sha256:106a41e6c9a428135dc016987ca90492a5b5a12b196517eb2c2e724d44f88964",
+                "sha256:f796896d9c533762ccc1edf677f51f4e10a8c2bd290446a466ff676339ca4d1e",
+                "sha256:ea14261e8ed85119ecb869e4cf9a59aefc4c0c8a283078166f6c88d88fc336e7",
+                "sha256:a0d564da2c939c55b39116f9470e0b3e39265511130c85b9b248f7e18c9dd861",
+                "sha256:c5b13bae086f4a6753c200076c5a5967dbb9cd4d12ff06f9ba73d4032bd44064",
+                "sha256:682558ddb2dfe138b6f87c9af94bea15c8849192efe6a06e99ff463ae4a60855",
+                "sha256:962cf9f609c327eb6eaa6fe2c7baa9514f46e55af166eea556dfd5e475704c1f",
+                "sha256:1af47edbe5e3de168fc6c069470850e27183d326bfbd606818645a33d1ce7f42",
+                "sha256:281f34cc39d3d0a1b2a8c539ea56d9157180c5d0dc708e5f7273ff8215f23554",
+                "sha256:efb19c9c5338d3f34516e4767ce096617c0cdd6a316da77298931aefc13b7695"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "2022-03-10T22:52:24.160516424+01:00"
+        }
+    }
+]
