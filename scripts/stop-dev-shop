@@ -6,9 +6,26 @@ cd "${PROJ_DIR}" || exit
 ### MAIN
 
 if docker ps | grep -q -e 'dev-shop$'; then
-  echo "Stopping dev-shop"
-  docker kill dev-shop
-  docker rm dev-shop
+  if docker exec dev-shop k3d cluster list dev-shop --no-headers 2>/dev/null | grep -q "dev-shop"; then
+    echo "Deleting k3d dev-shop cluster ..."
+    docker exec dev-shop k3d cluster delete dev-shop
+  else
+    echo "k3d dev-shop cluster already deleted"
+  fi
 else
-  echo "dev-shop already stopped"
+  echo "k3d dev-shop cluster already deleted"
+fi
+
+if docker ps | grep -q -e 'dev-shop$'; then
+  echo "Killing dev-shop docker container ..."
+  docker kill dev-shop | awk '{print $0 " container killed"}'
+else
+  echo "dev-shop docker container already killed"
+fi
+
+if docker container ls --all | grep -q "dev-shop"; then
+  echo "Removing dev-shop docker container ..."
+  docker rm dev-shop| awk '{print $0 " container removed"}'
+else
+  echo "dev-shop docker container already removed"
 fi

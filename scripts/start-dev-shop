@@ -5,9 +5,25 @@ cd "${PROJ_DIR}" || exit
 
 ### MAIN
 
+#IMAGE="dev-shop:latest"
+IMAGE="rancher/k3d:5.3.0-dind"
+
 if ! docker ps | grep -q -e 'dev-shop$'; then
   #https://github.com/k3d-io/k3d/issues/855
-  docker run  -d --privileged  --name dev-shop dev-shop:latest
+  echo "Starting docker dev-shop container with image: ${IMAGE} ..."
+  docker run -d --privileged  --name dev-shop "${IMAGE}" && sleep 2
+else
+  echo "Docker dev-shop container already started"
 fi
 
+if ! docker exec dev-shop k3d cluster list dev-shop --no-headers 2>/dev/null | grep -q "dev-shop"; then
+  echo "Starting k3d dev-shop cluster ..."
+  docker exec dev-shop k3d cluster create dev-shop
+  docker exec dev-shop kubectl cluster-info
+else
+  echo "k3d dev-shop cluster already started"
+fi
+
+echo "Opening dev-shop terminal"
+echo
 docker exec -it dev-shop bash
