@@ -1,0 +1,24 @@
+#!/bin/bash
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+NAME="dev-shop-backstage"
+IMAGE="${NAME}:latest"
+
+
+### MAIN
+
+if docker ps | grep -q -e "${NAME}"'$'; then
+  echo "Killing ${NAME} docker container ..."
+  docker kill ${NAME} | awk '{print $0 " container killed"}'
+else
+  echo "${NAME} docker container already killed"
+fi
+
+if docker container ls --all | grep -q "${NAME}"; then
+  echo "Removing ${NAME} docker container ..."
+  docker rm ${NAME} | awk '{print $0 " container removed"}'
+else
+  echo "${NAME} docker container already removed"
+fi

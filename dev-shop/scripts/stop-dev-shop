@@ -25,7 +25,7 @@ fi
 
 if docker container ls --all | grep -q "dev-shop"; then
   echo "Removing dev-shop docker container ..."
-  docker rm dev-shop| awk '{print $0 " container removed"}'
+  docker rm dev-shop | awk '{print $0 " container removed"}'
 else
   echo "dev-shop docker container already removed"
 fi

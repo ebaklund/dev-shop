@@ -1,2 +1,2 @@
 # dev-shop
-Developer k3d workshop with  backstage, crossplane, argo workflow, argo cd
+Developer workshop with a number of tools for software development

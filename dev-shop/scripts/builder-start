@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+NAME="dev-shop-yarn"
+IMAGE="${NAME}:latest"
+
+
+### MAIN
+
+echo "Opening ${NAME} terminal"
+docker run -it  --name "${NAME}" "${IMAGE}"

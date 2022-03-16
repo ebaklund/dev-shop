@@ -1,0 +1,21 @@
+#!/bin/bash
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+### MAIN
+
+IMAGE="dev-shop-backstage:latest"
+docker run -d --name dev-shop-backstage "${IMAGE}" && sleep 2
+
+if ! docker ps | grep -q -e 'dev-shop-backstage$'; then
+  #https://github.com/k3d-io/k3d/issues/855
+  echo "Starting docker dev-shop-backstage container with image: ${IMAGE} ..."
+  docker run -d --name dev-shop-backstage "${IMAGE}" && sleep 2
+else
+  echo "Docker dev-shop-backstage container already started"
+fi
+
+echo "Opening dev-shop-backstage terminal"
+echo
+docker exec -it dev-shop-backstage bash

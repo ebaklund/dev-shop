@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Inspired from
+# https://medium.com/rahasak/deploy-spotify-backstage-with-kubernetes-b769e755e402
+# https://roadie.io/blog/backstage-docker-service-catalog/
+
+PROJ_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd | sed 's/\(.*\/dev-shop\).*/\1/')"
+cd "${PROJ_DIR}" || exit
+
+BUILDER_NAME="dev-shop-yarn"
+NAME="dev-shop-backstage"
+IMAGE="${NAME}:latest"
+
+### MAIN
+CONTAINER="$(docker ps | grep ${BUILDER_NAME} | awk '{print $1}')"
+
+if [ -n "${CONTAINER}" ]; then
+  echo "Commiting ${IMAGE} from ${BUILDER_NAME} ..."
+  docker commit -c 'CMD ["bash", "--login", "-c", "cd /root/dev-shop-backstage; yarn run"]' -c "EXPOSE 3000" "${CONTAINER}" "${IMAGE}"
+else
+  echo "Cannot commit. Container ${BUILDER_NAME} is missing."
+fi
